@@ -1,6 +1,7 @@
 module Spree
   module Admin
     class SlidesController < ResourceController
+      before_action :load_stores, only: [:new, :edit]
       respond_to :html
 
       # Copied over from the Spree Core.
@@ -21,7 +22,11 @@ module Spree
       private
 
       def slider_params
-        params.require(:slide).permit(:name, :body, :target_url, :published, :image, :thumbnail_message)
+        params.require(:slide).permit(:name, :body, :target_url, :published, :image, :thumbnail_message, :store_id)
+      end
+
+      def load_stores
+        @stores = Store.all
       end
 
     end

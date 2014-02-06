@@ -19,6 +19,7 @@
   <thead>
     <tr data-hook="admin_slides_index_headers">
       <th><%= t(:name) %></th>
+      <th><%= t(:store) %></th>
       <th data-hook="admin_slides_index_header_actions"></th>
     </tr>
   </thead>
@@ -26,6 +27,7 @@
     <% @slides.each do |slide|%>
       <tr id="<%= spree_dom_id slide %>" data-hook="admin_slides_index_rows">
         <td width="350px" ><span class="handle" style="margin-right:5px"> </span> <%=link_to slide.name, object_url(slide) %></td>
+        <td><%= slide.store.name %></td>
         <td data-hook="admin_slides_index_row_actions">
           <%= link_to_edit slide, :class => 'edit' %> &nbsp;
           <%= link_to_delete slide %>
