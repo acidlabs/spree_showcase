@@ -6,8 +6,8 @@ module Spree
     has_attached_file :image,
       :styles=>{:thumb=> ["#{SpreeShowcase::Config.thumbnail_style}"],
                 :showcase=> ["#{SpreeShowcase::Config.showcase_style}"]},
-      :url => '/spree/showcase/:id/:style/:basename.:extension',
-      :path => ':rails_root/public/spree/showcase/:id/:style/:basename.:extension'
+      :url => '/images/showcase/:id/:style/:basename.:extension',
+      :path => ':rails_root/public/images/showcase/:id/:style/:basename.:extension'
 
     # Add S3 and Heroku support
     s3_options = if ENV['S3_KEY'] && ENV['S3_SECRET'] && ENV['S3_BUCKET']
